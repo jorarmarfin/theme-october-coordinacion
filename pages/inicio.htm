@@ -25,13 +25,13 @@ redirect = "login"
 
                         <div class="widget-profile-info">
                             <div class="profile-picture">
-                                <img src="img/!logged-user.jpg">
+                                <img src="{{ user.avatar.path }}">
                             </div>
                             <div class="profile-info">
-                                <h4 class="name font-weight-semibold">John Doe</h4>
+                                <h4 class="name font-weight-semibold">{{ user.name }}</h4>
                                 <h5 class="role">Administrator</h5>
                                 <div class="profile-footer">
-                                    <a href="#">(edit profile)</a>
+                                    <a href="/mi-perfil">(editar perfil)</a>
                                 </div>
                             </div>
                         </div>
