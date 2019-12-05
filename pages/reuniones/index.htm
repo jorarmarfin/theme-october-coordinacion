@@ -2,6 +2,18 @@ title = "index"
 url = "/reuniones/"
 layout = "default"
 is_hidden = 0
+
+[session]
+security = "user"
+redirect = "login"
+==
+<?php
+use LuisMayta\Coordinacion\Models\Reuniones;
+function onStart()
+{
+    $this['reuniones'] = Reuniones::OrderBy('fecha','asc')->take('5')->get();    
+}
+?>
 ==
 <section class="card card-primary mb-4">
     <header class="card-header">
@@ -12,6 +24,26 @@ is_hidden = 0
         <h2 class="card-title">Title</h2>
     </header>
     <div class="card-body">
-        <code>.card-primary</code>
+        <table class="table table-responsive-md table-striped mb-0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Progress</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for reunion in reuniones %}
+                <tr>
+                    <td>1{{ loop.iteration }}</td>
+                    <td>{{ reunion.fecha }}</td>
+                    <td><span class="badge badge-success">{{ reunion.tipo }}</span></td>
+                    <td> <a href="#">{{ reunion.asunto }}</a> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
     </div>
 </section>

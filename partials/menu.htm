@@ -5,28 +5,35 @@ description = "Menu Principal"
 <div class="tab-navigation collapse">
 	<nav>
 		<ul class="nav nav-pills">
-			<li class="nav-expanded nav-active">
+				{# nav-expanded #}
+			<li class="{{ this.page.url == '/' ? 'nav-expanded' : '' }}">
 				<a class="nav-link dropdown-toggle" href="/">
 					<i class="fas fa-home" aria-hidden="true"></i>Inicio
 				</a>
 			</li>
-			<li class="dropdown">
-				<a class="nav-link dropdown-toggle"><i class="fas fa-church" aria-hidden="true"></i>Reuniones</a>
+			<li class="{{ this.page.url starts with '/reuniones/' ? 'nav-expanded' : '' }}">
+				<a href="/reuniones" class="nav-link dropdown-toggle"><i class="fas fa-church" aria-hidden="true"></i>Reuniones</a>
 			</li>
-			<li class="dropdown">
-				<a class="nav-link dropdown-toggle"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Eventos</a>
+			<li class="{{ this.page.url starts with '/eventos/' ? 'nav-expanded' : '' }}">
+				<a href="/eventos" class="nav-link dropdown-toggle"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Eventos</a>
 			</li>
-			<li class="dropdown">
-				<a class="nav-link dropdown-toggle"><i class="fas fa-tasks" aria-hidden="true"></i>Tareas</a>
+			<li class="{{ this.page.url starts with '/tareas/' ? 'nav-expanded' : '' }}">
+				<a href="/tareas" class="nav-link dropdown-toggle"><i class="fas fa-tasks" aria-hidden="true"></i>Tareas</a>
 			</li>
-			<li class="dropdown">
-				<a class="nav-link dropdown-toggle"><i class="fas fa-users-cog" aria-hidden="true"></i>Sabado</a>
+			<li class="{{ this.page.url starts with '/sabados/' ? 'nav-expanded' : '' }}">
+				<a href="/sabados" class="nav-link dropdown-toggle"><i class="fas fa-users-cog" aria-hidden="true"></i>Sabado</a>
 			</li>
-			<li class="dropdown">
-				<a class="nav-link dropdown-toggle"><i class="fas fa-edit" aria-hidden="true"></i>Notas</a>
+			<li class="{{ this.page.url starts with '/notas/' ? 'nav-expanded' : '' }}">
+				<a href="/notas" class="nav-link dropdown-toggle"><i class="fas fa-edit" aria-hidden="true"></i>Notas</a>
 			</li>
-			<li class="dropdown">
-				<a class="nav-link dropdown-toggle"><i class="fas fa-users" aria-hidden="true"></i>Hermanos</a>
+			<li class="{{ this.page.url starts with '/misa/' ? 'nav-expanded' : '' }}">
+				<a href="/misa" class="nav-link dropdown-toggle"><i class="fas fa-book-reader" aria-hidden="true"></i>Misa</a>
+			</li>
+			<li class="{{ this.page.url starts with '/contribuciones/' ? 'nav-expanded' : '' }}">
+				<a href="/contribuciones" class="nav-link dropdown-toggle"><i class="fas fa-university" aria-hidden="true"></i>Contribuciones</a>
+			</li>
+			<li class="{{ this.page.url starts with '/hermanos/' ? 'nav-expanded' : '' }}">
+				<a href="/hermanos" class="nav-link dropdown-toggle"><i class="fas fa-users" aria-hidden="true"></i>Hermanos</a>
 			</li>
 			
 		</ul>
