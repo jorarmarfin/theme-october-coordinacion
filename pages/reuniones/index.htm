@@ -11,7 +11,13 @@ redirect = "login"
 use LuisMayta\Coordinacion\Models\Reuniones;
 function onStart()
 {
-    $this['reuniones'] = Reuniones::OrderBy('fecha','asc')->take('5')->get();    
+    //$this['reuniones'] = Reuniones::OrderBy('fecha','asc')->take('5')->get();
+    for ($i=0; $i < 10; $i++) { 
+        $data[$i]['uno'] = 'test';
+        $data[$i]['dos'] = 'test';
+        $data[$i]['tres'] = 'test';
+    }
+    $this['reuniones'] = $data;
 }
 ?>
 ==
@@ -29,17 +35,17 @@ function onStart()
                 <tr>
                     <th>#</th>
                     <th>Fecha</th>
-                    <th>Tipo</th>
-                    <th>Progress</th>
+                    <th>Tipo de reunion</th>
+                    <th>Asunto</th>
                 </tr>
             </thead>
             <tbody>
-            {% for reunion in reuniones %}
+            {% for i in 0..10 %}
                 <tr>
-                    <td>1{{ loop.iteration }}</td>
-                    <td>{{ reunion.fecha }}</td>
-                    <td><span class="badge badge-success">{{ reunion.tipo }}</span></td>
-                    <td> <a href="#">{{ reunion.asunto }}</a> </td>
+                    <td>1</td>
+                    <td>2019-12-12</td>
+                    <td><span class="badge badge-success">capilla</span></td>
+                    <td> <a href="#">reunion de coordinacion</a> </td>
                 </tr>
             {% endfor %}
             </tbody>
