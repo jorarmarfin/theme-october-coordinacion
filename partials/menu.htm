@@ -3,106 +3,39 @@ description = "Menu Principal"
 [viewBag]
 ==
 <div class="tab-navigation collapse">
-					<nav>
-						<ul class="nav nav-pills">
-							<li class="nav-expanded nav-active">
-							    <a class="nav-link dropdown-toggle" href="/">
-							        <i class="fas fa-home" aria-hidden="true"></i>Inicio
-								</a>
-								<ul class="dropdown-menu">
-									<li class="dropdown-submenu">
-										<a class="nav-link ">Sabado</a>
-									</li>
-									<li class="dropdown-submenu">
-										<a class="nav-link ">Cumpleaños</a>
-									</li>
-									<li class="dropdown-submenu">
-										<a class="nav-link ">Agenda</a>
-									</li>
-									<li class="dropdown-submenu">
-										<a class="nav-link ">Reuniones</a>
-									</li>
-									<li class="dropdown-submenu">
-										<a class="nav-link ">Notas</a>
-									</li>
-									<li class="dropdown-submenu">
-										<a class="nav-link ">Hermanos</a>
-									</li>
-									<li class="dropdown-submenu">
-										<a class="nav-link ">Asistencia</a>
-									</li>
-								</ul>
-							</li>
-							<li class="dropdown">
-							    <a class="nav-link dropdown-toggle"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Calendario</a>
-							    <ul class="dropdown-menu">
-							        <li class="dropdown-submenu">
-							            <a class="nav-link dropdown-toggle">Layouts 1</a>
-							            <ul class="dropdown-menu">
-							                <li>
-							                    <a class="nav-link" href="index.html">
-							                        Landing Page
-							                    </a>
-							                </li>
-							                <li>
-							                    <a class="nav-link" href="layouts-default.html">
-							                        Default
-							                    </a>
-							                </li>
-							                <li class="dropdown-submenu">
-							                    <a class="nav-link dropdown-toggle">
-							                        Boxed
-							                    </a>
-							                    <ul class="dropdown-menu">
-							                        <li>
-							                            <a class="nav-link" href="layouts-boxed.html">
-							                                Static Header
-							                            </a>
-							                        </li>
-							                        <li>
-							                            <a class="nav-link" href="layouts-boxed-fixed-header.html">
-							                                Fixed Header
-							                            </a>
-							                        </li>
-							                    </ul>
-							                </li>
-							                <li class="dropdown-submenu">
-							                    <a class="nav-link dropdown-toggle">
-							                        Horizontal Menu Header
-							                    </a>
-							                    <ul class="dropdown-menu">
-							                        <li>
-							                            <a class="nav-link" href="layouts-header-menu.html">
-							                                Pills
-							                            </a>
-							                        </li>
-							                        <li>
-							                            <a class="nav-link" href="layouts-header-menu-stripe.html">
-							                                Stripe
-							                            </a>
-							                        </li>
-							                        <li>
-							                            <a class="nav-link" href="layouts-header-menu-top-line.html">
-							                                Top Line
-							                            </a>
-							                        </li>
-							                    </ul>
-							                </li>
-							                <li>
-							                    <a class="nav-link" href="layouts-dark.html">
-							                        Dark
-							                    </a>
-							                </li>
-							                <li>
-							                    <a class="nav-link" href="layouts-dark-header.html">
-							                        Dark Header
-							                    </a>
-							                </li>
-							            </ul>
-							        </li>
-							    </ul>
-							</li>
-							
-						</ul>
-					</nav>
-				</div>
+	<nav>
+		<ul class="nav nav-pills">
+				{# nav-expanded #}
+			<li class="{{ this.page.url == '/' ? 'nav-expanded' : '' }}">
+				<a class="nav-link dropdown-toggle" href="/">
+					<i class="fas fa-home" aria-hidden="true"></i>Inicio
+				</a>
+			</li>
+			<li class="{{ this.page.url starts with '/reuniones/' ? 'nav-expanded' : '' }}">
+				<a href="/reuniones" class="nav-link dropdown-toggle"><i class="fas fa-church" aria-hidden="true"></i>Reuniones</a>
+			</li>
+			<li class="{{ this.page.url starts with '/eventos/' ? 'nav-expanded' : '' }}">
+				<a href="/eventos" class="nav-link dropdown-toggle"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Eventos</a>
+			</li>
+			<li class="{{ this.page.url starts with '/tareas/' ? 'nav-expanded' : '' }}">
+				<a href="/tareas" class="nav-link dropdown-toggle"><i class="fas fa-tasks" aria-hidden="true"></i>Tareas</a>
+			</li>
+			<li class="{{ this.page.url starts with '/sabados/' ? 'nav-expanded' : '' }}">
+				<a href="/sabados" class="nav-link dropdown-toggle"><i class="fas fa-users-cog" aria-hidden="true"></i>Sabado</a>
+			</li>
+			<li class="{{ this.page.url starts with '/notas/' ? 'nav-expanded' : '' }}">
+				<a href="/notas" class="nav-link dropdown-toggle"><i class="fas fa-edit" aria-hidden="true"></i>Notas</a>
+			</li>
+			<li class="{{ this.page.url starts with '/misa/' ? 'nav-expanded' : '' }}">
+				<a href="/misa" class="nav-link dropdown-toggle"><i class="fas fa-book-reader" aria-hidden="true"></i>Misa</a>
+			</li>
+			<li class="{{ this.page.url starts with '/contribuciones/' ? 'nav-expanded' : '' }}">
+				<a href="/contribuciones" class="nav-link dropdown-toggle"><i class="fas fa-university" aria-hidden="true"></i>Contribuciones</a>
+			</li>
+			<li class="{{ this.page.url starts with '/hermanos/' ? 'nav-expanded' : '' }}">
+				<a href="/hermanos" class="nav-link dropdown-toggle"><i class="fas fa-users" aria-hidden="true"></i>Hermanos</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>

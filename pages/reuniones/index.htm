@@ -1,0 +1,57 @@
+title = "index"
+url = "/reuniones/"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "login"
+
+[MisReuniones]
+==
+<?php
+use LuisMayta\Coordinacion\Models\Reuniones;
+function onStart()
+{
+    //$this['reuniones'] = Reuniones::OrderBy('fecha','asc')->take('5')->get();
+    for ($i=0; $i < 10; $i++) { 
+        $data[$i]['uno'] = 'test';
+        $data[$i]['dos'] = 'test';
+        $data[$i]['tres'] = 'test';
+    }
+    $this['reuniones'] = $data;
+}
+?>
+==
+<section class="card card-primary mb-4">
+    <header class="card-header">
+        <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+        </div>
+        <h2 class="card-title">Title</h2>
+    </header>
+    <div class="card-body">
+        <table class="table table-responsive-md table-striped mb-0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Fecha</th>
+                    <th>Tipo de reunion</th>
+                    <th>Asunto</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in MisReuniones.lista_reuniones %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.fecha }}</td>
+                    <td><span class="badge badge-success">{{ item.tipo }}</span></td>
+                    <td> <a href="#">{{ item.asunto }}</a> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</section>
