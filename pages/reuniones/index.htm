@@ -6,6 +6,8 @@ is_hidden = 0
 [session]
 security = "user"
 redirect = "login"
+
+[MisReuniones]
 ==
 <?php
 use LuisMayta\Coordinacion\Models\Reuniones;
@@ -40,12 +42,12 @@ function onStart()
                 </tr>
             </thead>
             <tbody>
-            {% for i in 0..10 %}
+            {% for item in MisReuniones.lista_reuniones %}
                 <tr>
-                    <td>1</td>
-                    <td>2019-12-12</td>
-                    <td><span class="badge badge-success">capilla</span></td>
-                    <td> <a href="#">reunion de coordinacion</a> </td>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.fecha }}</td>
+                    <td><span class="badge badge-success">{{ item.tipo }}</span></td>
+                    <td> <a href="#">{{ item.asunto }}</a> </td>
                 </tr>
             {% endfor %}
             </tbody>
