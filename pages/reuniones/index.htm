@@ -7,29 +7,17 @@ is_hidden = 0
 security = "user"
 redirect = "login"
 
-[MisReuniones]
+[ObtieneEntidades]
+Modelo = "Reuniones"
 ==
-<?php
-use LuisMayta\Coordinacion\Models\Reuniones;
-function onStart()
-{
-    //$this['reuniones'] = Reuniones::OrderBy('fecha','asc')->take('5')->get();
-    for ($i=0; $i < 10; $i++) { 
-        $data[$i]['uno'] = 'test';
-        $data[$i]['dos'] = 'test';
-        $data[$i]['tres'] = 'test';
-    }
-    $this['reuniones'] = $data;
-}
-?>
-==
+{% set Reuniones = ObtieneEntidades.Modelo %}
 <section class="card card-primary mb-4">
     <header class="card-header">
         <div class="card-actions">
             <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
             <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
         </div>
-        <h2 class="card-title">Title</h2>
+        <h2 class="card-title">Reuniones</h2>
     </header>
     <div class="card-body">
         <table class="table table-responsive-md table-striped mb-0">
@@ -42,12 +30,12 @@ function onStart()
                 </tr>
             </thead>
             <tbody>
-            {% for item in MisReuniones.lista_reuniones %}
+            {% for item in Reuniones %}
                 <tr>
                     <td>{{ item.id }}</td>
                     <td>{{ item.fecha }}</td>
                     <td><span class="badge badge-success">{{ item.tipo }}</span></td>
-                    <td> <a href="#">{{ item.asunto }}</a> </td>
+                    <td> <a href="/reuniones/detalle/{{ item.id }}">{{ item.asunto }}</a> </td>
                 </tr>
             {% endfor %}
             </tbody>
