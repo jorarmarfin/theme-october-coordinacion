@@ -1,17 +1,17 @@
 title = "detalle"
-url = "/reuniones/detalle/:id"
+url = "/eventos/detalle/:id"
 layout = "default"
 is_hidden = 0
 
 [DetalleEntidades]
-Modelo = "Reuniones"
+Modelo = "Eventos"
 
 [session]
 security = "user"
 redirect = "login"
 ==
 {% component 'DetalleEntidades' %}
-{% set reunion = DetalleEntidades.Modelo %}
+{% set detalle = DetalleEntidades.Modelo %}
 
 <section class="card card-primary mb-4">
     <header class="card-header">
@@ -19,13 +19,13 @@ redirect = "login"
             <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
             <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
         </div>
-        <h2 class="card-title">Reunion {{ reunion.tipo }} realizada el  {{ reunion.fecha }}</h2>
+        <h2 class="card-title">Evento de {{ detalle.tipo }} que se realizará el  {{ detalle.fecha }}</h2>
     </header>
     <div class="card-body">
 		<div class="row">
             <div class="col-md-4">
-            <h2>{{ reunion.asunto }}</h2>
-            {{ reunion.descripcion|raw }}
+            <h2>{{ detalle.titulo }}</h2>
+            {{ detalle.descripcion|raw }}
             </div>
         </div>
 

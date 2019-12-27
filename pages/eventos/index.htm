@@ -6,17 +6,21 @@ is_hidden = 0
 [session]
 security = "user"
 redirect = "login"
+
+[ObtieneEntidades]
+Modelo = "Eventos"
 ==
+{% set Eventos = ObtieneEntidades.Modelo %}
 <section class="card card-primary mb-4">
     <header class="card-header">
         <div class="card-actions">
             <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
             <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
         </div>
-        <h2 class="card-title">Title</h2>
+        <h2 class="card-title">Eventos</h2>
     </header>
     <div class="card-body">
-        <table class="table table-responsive-md table-striped mb-0">
+        <table id="MyDataTable" class="table table-responsive-md table-striped mb-0">
             <thead>
                 <tr>
                     <th>#</th>
@@ -26,14 +30,16 @@ redirect = "login"
                 </tr>
             </thead>
             <tbody>
+            {% for item in Eventos %}
                 <tr>
-                    <td>1</td>
-                    <td>2019-12-01</td>
-                    <td><span class="badge badge-success">Capilla</span></td>
-                    <td> <a href="#">Jornada</a> </td>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.fecha }}</td>
+                    <td><span class="badge badge-success">{{ item.tipo }}</span></td>
+                    <td> <a href="/eventos/detalle/{{ item.id }}">{{ item.titulo }}</a> </td>
                 </tr>
-            
+            {% endfor %}
             </tbody>
         </table>
+
     </div>
 </section>
