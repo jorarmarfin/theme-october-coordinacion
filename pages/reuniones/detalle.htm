@@ -5,6 +5,10 @@ is_hidden = 0
 
 [DetalleEntidades]
 Modelo = "Reuniones"
+
+[session]
+security = "user"
+redirect = "login"
 ==
 {% component 'DetalleEntidades' %}
 {% set reuniones = DetalleEntidades.Modelo %}
