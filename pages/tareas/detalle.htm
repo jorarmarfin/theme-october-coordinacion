@@ -1,0 +1,32 @@
+title = "detalle"
+url = "/tareas/detalle/:id"
+layout = "default"
+is_hidden = 0
+
+[DetalleEntidades]
+Modelo = "Tareas"
+
+[session]
+security = "user"
+redirect = "login"
+==
+{% component 'DetalleEntidades' %}
+{% set detalle = DetalleEntidades.Modelo %}
+
+<section class="card card-primary mb-4">
+    <header class="card-header">
+        <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+        </div>
+        <h2 class="card-title">{{ detalle.asunto }} el  {{ detalle.fecha }}</h2>
+    </header>
+    <div class="card-body">
+		<div class="row">
+            <div class="col-md-4">
+            {{ detalle.descripcion|raw }}
+            </div>
+        </div>
+
+    </div>
+</section>

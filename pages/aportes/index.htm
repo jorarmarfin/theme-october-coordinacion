@@ -1,5 +1,5 @@
 title = "index"
-url = "/tareas/"
+url = "/aportes/"
 layout = "default"
 is_hidden = 0
 
@@ -8,16 +8,16 @@ security = "user"
 redirect = "login"
 
 [ObtieneEntidades]
-Modelo = "Tareas"
+Modelo = "Aportes"
 ==
-{% set Tareas = ObtieneEntidades.Modelo %}
+{% set Aportes = ObtieneEntidades.Modelo %}
 <section class="card card-primary mb-4">
     <header class="card-header">
         <div class="card-actions">
             <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
             <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
         </div>
-        <h2 class="card-title">Tareas</h2>
+        <h2 class="card-title">Aportes</h2>
     </header>
     <div class="card-body">
         <table id="MyDataTable" class="table table-responsive-md table-striped mb-0">
@@ -25,15 +25,17 @@ Modelo = "Tareas"
                 <tr>
                     <th>#</th>
                     <th>Fecha</th>
-                    <th>Tarea</th>
+                    <th>Tipo</th>
+                    <th>Aporte</th>
                 </tr>
             </thead>
             <tbody>
-            {% for item in Tareas %}
+            {% for item in Aportes %}
                 <tr>
                     <td>{{ item.id }}</td>
                     <td>{{ item.fecha }}</td>
-                    <td> <a href="/tareas/detalle/{{ item.id }}">{{ item.asunto }}</a> </td>
+                    <td><span class="badge badge-success">{{ item.tipo }}</span></td>
+                    <td> <a href="/aportes/detalle/{{ item.id }}">{{ item.aporte }}</a> </td>
                 </tr>
             {% endfor %}
             </tbody>
