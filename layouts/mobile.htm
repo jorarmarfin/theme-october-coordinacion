@@ -1,0 +1,65 @@
+description = "Dise�o base para portal"
+==
+<!doctype html>
+<html class="has-tab-navigation header-dark">
+	<head>
+
+		<!-- Basic -->
+		<meta charset="UTF-8">
+
+		<title>Sistema de administracion de grupo y oración</title>
+		<meta name="description" content="Sistema de administracion de grupo y oración">
+		<meta name="author" content="luis mayta">
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<!-- Web Fonts  -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="{{ 'assets/vendor/bootstrap/css/bootstrap.css'|theme }}" />
+		<link rel="stylesheet" href="{{ 'assets/vendor/animate/animate.css'|theme }}">
+
+		<link rel="stylesheet" href="{{ 'assets/vendor/font-awesome/css/all.min.css'|theme }} " />
+		<link rel="stylesheet" href="{{ 'assets/vendor/magnific-popup/magnific-popup.css'|theme }} " />
+		<link rel="stylesheet" href="{{ 'assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css'|theme }} " />
+		<link rel="stylesheet" href="{{ 'assets/vendor/datatables/media/css/dataTables.bootstrap4.css'|theme }} " />
+
+		<!-- Specific Page Vendor CSS -->
+		<link rel="stylesheet" href="{{ 'assets/vendor/jquery-ui/jquery-ui.css'|theme }} " />
+		<link rel="stylesheet" href="{{ 'assets/vendor/jquery-ui/jquery-ui.theme.css'|theme }} " />
+		<link rel="stylesheet" href="{{ 'assets/vendor/morris/morris.css'|theme }} " />
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="{{ 'assets/css/theme.css'|theme }} " />
+
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="{{ 'assets/css/skins/default.css'|theme }} " />
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="{{ 'assets/css/custom.css'|theme }}">
+
+		<!-- Head Libs -->
+		<script src="{{ 'assets/vendor/modernizr/modernizr.js'|theme }}"></script>
+
+	</head>
+	<body>
+		{% page %}
+
+		<!-- Vendor -->
+		<script src="{{ 'assets/vendor/jquery/jquery.js'|theme }}"></script>
+		<script src="{{ 'assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js'|theme }}"></script>
+		<script src="{{ 'assets/vendor/popper/umd/popper.min.js'|theme }}"></script>
+		<script src="{{ 'assets/vendor/bootstrap/js/bootstrap.js'|theme }}"></script>
+		<script src="{{ 'assets/vendor/common/common.js'|theme }}"></script>
+		<script src="{{ 'assets/vendor/nanoscroller/nanoscroller.js'|theme }}"></script>
+		<script src="{{ 'assets/vendor/magnific-popup/jquery.magnific-popup.js'|theme }}"></script>
+		<script src="{{ 'assets/vendor/jquery-placeholder/jquery.placeholder.js'|theme }}"></script>
+		
+		<!-- Specific Page Vendor -->
+		<script src="{{ 'assets/vendor/jquery-ui/jquery-ui.js'|theme }}"></script>
+		
+		{% framework extras %}
+	</body>
+</html>
