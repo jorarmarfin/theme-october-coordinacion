@@ -12,15 +12,15 @@ redirect = "login"
 use LuisMayta\Coordinacion\Models\Hermanos;
 use LuisMayta\Coordinacion\Models\Eventos;
 use LuisMayta\Coordinacion\Models\Reuniones;
+use LuisMayta\Coordinacion\Models\Sabado;
 function onStart()
 {
     $mes = date('m');
     $this['cumple'] = Hermanos::OrderBy('fecha_nacimiento','asc')->WhereMonth('fecha_nacimiento',$mes)->first();
     $this['eventos'] = Eventos::OrderBy('fecha','asc')->take(5)->get();
     $this['reuniones'] = Reuniones::OrderBy('fecha','asc')->take('5')->get();
-    $this['year'] = date('Y');
-    $this['month'] = date('F');
-    
+    $this['sabados'] = Sabado::OrderBy('fecha','asc')->take('5')->get();
+
 }
 ?>
 ==
@@ -54,187 +54,47 @@ function onStart()
                         </div>
 
                     </header>
-                    <div id="accordion" class="w-100">
-                        <div class="card card-accordion card-accordion-first">
-                            <div class="card-header border-bottom-0">
-                                <h4 class="card-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1One">
-                                        <i class="fas fa-check mr-1"></i> Tareas
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse1One" class="accordion-body collapse show">
-                                <div class="card-body">
-                                    <ul class="widget-todo-list">
-                                        <li>
-                                            <div class="checkbox-custom checkbox-default">
-                                                <input type="checkbox" checked="" id="todoListItem1" class="todo-check">
-                                                <label class="todo-label" for="todoListItem1"><span>Curabitur ac sem at nibh egestas urabitur ac sem at nibh egestas.</span></label>
-                                            </div>
-                                            <div class="todo-actions">
-                                                <a class="todo-remove" href="#">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox-custom checkbox-default">
-                                                <input type="checkbox" id="todoListItem2" class="todo-check">
-                                                <label class="todo-label" for="todoListItem2"><span>Lorem ipsum dolor sit amet</span></label>
-                                            </div>
-                                            <div class="todo-actions">
-                                                <a class="todo-remove" href="#">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox-custom checkbox-default">
-                                                <input type="checkbox" id="todoListItem3" class="todo-check">
-                                                <label class="todo-label" for="todoListItem3"><span>Curabitur ac sem at nibh egestas</span></label>
-                                            </div>
-                                            <div class="todo-actions">
-                                                <a class="todo-remove" href="#">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox-custom checkbox-default">
-                                                <input type="checkbox" id="todoListItem4" class="todo-check">
-                                                <label class="todo-label" for="todoListItem4"><span>Lorem ipsum dolor sit amet</span></label>
-                                            </div>
-                                            <div class="todo-actions">
-                                                <a class="todo-remove" href="#">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox-custom checkbox-default">
-                                                <input type="checkbox" id="todoListItem5" class="todo-check">
-                                                <label class="todo-label" for="todoListItem5"><span>Curabitur ac sem at nibh egestas.</span></label>
-                                            </div>
-                                            <div class="todo-actions">
-                                                <a class="todo-remove" href="#">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox-custom checkbox-default">
-                                                <input type="checkbox" id="todoListItem6" class="todo-check">
-                                                <label class="todo-label" for="todoListItem6"><span>Lorem ipsum dolor sit amet</span></label>
-                                            </div>
-                                            <div class="todo-actions">
-                                                <a class="todo-remove" href="#">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="checkbox-custom checkbox-default">
-                                                <input type="checkbox" id="todoListItem7" class="todo-check">
-                                                <label class="todo-label" for="todoListItem7"><span>Curabitur ac sem at nibh egestas.</span></label>
-                                            </div>
-                                            <div class="todo-actions">
-                                                <a class="todo-remove" href="#">
-                                                    <i class="fas fa-times"></i>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <hr class="solid mt-3 mb-3">
-                                    <form method="get" class="form-horizontal form-bordered">
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <div class="input-group mb-3">
-                                                    <input type="text" class="form-control">
-                                                    <div class="input-group-append">
-                                                        <button type="button" class="btn btn-primary" tabindex="-1">Agregar</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </section>
 
+            </div>
+        </section>
+        <section class="card">
+            <div class="card-body">
+                <div class="small-chart float-right" id="sparklineBarDash">
+                <i class="fas fa-birthday-cake" style="font-size: 3rem;"></i>
+                </div>
+                <div class="h4 font-weight-bold mb-0">{{ cumple.nombres }}</div>
+                <p class="text-3 text-muted mb-0">{{ cumple.fecha_nacimiento }}</p>
             </div>
         </section>
     </div>
     <div class="col-lg-6 col-xl-3">
         <section class="card card-transparent">
             <div class="card-body">
-                <section class="card">
-                    <div class="card-body">
-                        <div class="small-chart float-right" id="sparklineBarDash">
-                        <i class="fas fa-birthday-cake" style="font-size: 3rem;"></i>
+                <section class="card mb-3">
+                    <header class="card-header">
+                        <div class="card-actions">
+                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                         </div>
-                        <div class="h4 font-weight-bold mb-0">{{ cumple.nombres }}</div>
-                        <p class="text-3 text-muted mb-0">{{ cumple.fecha_nacimiento }}</p>
-                    </div>
-                </section>
-                <section class="card">
-                    <div class="card-body">
-                        <div class="small-chart float-right" id="sparklineBarDash">
-                            <i class="fas fa-dollar-sign" style="font-size: 3rem;"></i>
-                            </div>
-                        <div class="h4 font-weight-bold mb-0">S/ 12.00</div>
-                        <p class="text-3 text-muted mb-0">Working Projects</p>
-                    </div>
-                </section>
-                <section class="card">
-                    <div class="card-body">
-                        <div class="small-chart float-right" id="sparklineBarDash">
-                            <i class="fas fa-users" style="font-size: 3rem;"></i>
-                            </div>
-                            <div class="h4 font-weight-bold mb-0">12/6/19</div>
-                        <p class="text-3 text-muted mb-0">Proxima Reunion</p>
-                    </div>
-                </section>
-            </div>
-        </section>
-        <section class="card mb-3">
-            <header class="card-header">
-                <div class="card-actions">
-                    <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                    <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
-                </div>
 
-                <h2 class="card-title">
-                    <span class="va-middle">Sabado</span>
-                </h2>
-            </header>
-            <div class="card-body">
-                <div class="content">
-                    <ul class="simple-user-list">
-                        <li>
-                            <figure class="image rounded">
-                                <img src="img/!sample-user.jpg" alt="Joseph Doe Junior" class="rounded-circle">
-                            </figure>
-                            <span class="title">Oracion Inicial</span>
-                            <span class="message truncate">Luis Mayta</span>
-                        </li>
-                        <li>
-                            <figure class="image rounded">
-                                <img src="img/!sample-user.jpg" alt="Joseph Junior" class="rounded-circle">
-                            </figure>
-                            <span class="title">Joseph Junior</span>
-                            <span class="message truncate">Lorem ipsum dolor sit.</span>
-                        </li>
-                        <li>
-                            <figure class="image rounded">
-                                <img src="img/!sample-user.jpg" alt="Joe Junior" class="rounded-circle">
-                            </figure>
-                            <span class="title">Joe Junior</span>
-                            <span class="message truncate">Lorem ipsum dolor sit.</span>
-                        </li>
-                    </ul>
-                </div>
+                        <h2 class="card-title">
+                            <span class="va-middle">Sabado</span>
+                        </h2>
+                    </header>
+                    <div class="card-body">
+                        <div class="content">
+                            <ul class="simple-user-list">
+                            {% for sabado in sabados %}
+                                <li>
+                                    <span class="title">{{ sabado.fecha }}</span>
+                                    <span class="message truncate">{{ sabado.tema|raw }}</span>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </div>
         </section>
     </div>
@@ -249,13 +109,13 @@ function onStart()
                 <h2 class="card-title">Eventos</h2>
             </header>
             <div class="card-body">
-                <div class="timeline timeline-simple mt-3 mb-3">
+                <div class="timeline timeline-simple">
                     <div class="tm-body">
                         <ol class="tm-items">
                         {% for evento in eventos %}
                             <li>
                                 <div class="tm-box">
-                                    <p class="text-muted mb-0">{{ evento.fecha|strftime('%A %B') }} </p>
+                                    <p class="text-muted mb-0">{{ evento.t_mes }}, {{ evento.t_dia }} </p>
                                     <p>
                                         {{ evento.titulo}}
                                     </p>
