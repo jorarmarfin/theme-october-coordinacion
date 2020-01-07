@@ -13,20 +13,76 @@ redirect = "login"
 {% component 'DetalleEntidades' %}
 {% set detalle = DetalleEntidades.Modelo %}
 
-<section class="card card-primary mb-4">
-    <header class="card-header">
-        <div class="card-actions">
-            <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
-            <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
-        </div>
-        <h2 class="card-title">Hermanos</h2>
-    </header>
-    <div class="card-body">
-		<div class="row">
-            <div class="col-md-8">
-            <h2>{{ detalle.apellidos }} {{ detalle.nombres }}</h2>
+<div class="row mt-4">
+    <div class="col-lg-4 col-xl-3 mb-4 mb-xl-0">
+        <section class="card">
+            <div class="card-body">
+                <div class="thumb-info mb-3">
+                    <img src="{{ detalle.foto.path }}" class="rounded img-fluid" alt="John Doe">
+                    <div class="thumb-info-title">
+                        <span class="thumb-info-inner">{{ detalle.nombres }}</span>
+                        <span class="thumb-info-type">{{ detalle.apellidos }}</span>
+                    </div>
+                </div>
+
+                <hr class="dotted short">
+
+                <div class="social-icons-list">
+                    <a rel="tooltip" data-placement="bottom" target="_blank" href="http://www.facebook.com" data-original-title="Facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+                    <a rel="tooltip" data-placement="bottom" href="http://www.twitter.com" data-original-title="Twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+                    <a rel="tooltip" data-placement="bottom" href="http://www.linkedin.com" data-original-title="Linkedin"><i class="fab fa-linkedin-in"></i><span>Linkedin</span></a>
+                </div>
+
             </div>
-        </div>
+        </section>
 
     </div>
-</section>
+    <div class="col-lg-8 col-xl-6">
+
+        <div class="tabs">
+            <ul class="nav nav-tabs tabs-primary">
+                <li class="nav-item active">
+                    <a class="nav-link active" href="#overview" data-toggle="tab">Overview</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="overview" class="tab-pane active">
+
+                    <div class="p-3">
+                        <h4 class="mb-3">Datos Personales</h4>
+                        <p><strong>Fecha de nacimiento:</strong> {{ detalle.fecha_nacimiento }}</p>
+                        <p><strong>Año de inicio al grupo:</strong>  {{ detalle.inicio_go }}</p>
+                        <p><strong>Telefono:</strong> {{ detalle.telefono }}</p>
+                        <p><strong>Email:</strong> {{ detalle.email }}</p>
+                        <p><strong>Dirección:</strong> </p>
+                        <p>{{ detalle.direccion|raw }}</p>
+                    </div>
+
+                </div>
+                <div id="edit" class="tab-pane">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3">
+
+        <h4 class="mb-3 mt-0">Asistencia al grupo</h4>
+        <ul class="simple-card-list mb-3">
+            <li class="primary">
+                <h3>488</h3>
+                <p class="text-light">Asistencias</p>
+            </li>
+            <li class="danger">
+                <h3> 189,000.00</h3>
+                <p class="text-light">Faltas.</p>
+            </li>
+            <li class="warning">
+                <h3>16</h3>
+                <p class="text-light">Tardanzas</p>
+            </li>
+        </ul>
+
+    </div>
+
+</div>
