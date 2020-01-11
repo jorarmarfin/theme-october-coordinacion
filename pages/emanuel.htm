@@ -3,31 +3,81 @@ url = "/emanuel"
 layout = "mobile"
 is_hidden = 0
 
-
+[session]
+security = "user"
+allowedUserGroups[] = "emanuel"
+redirect = "login"
 ==
 <div class="row">
-    <div class="col-lg-12 col-xl-6">
-			<section class="card card-horizontal mb-4">
-				<header class="card-header bg-white">
-					<div class="card-header-icon bg-primary ml-3">
-						<i class="fas fa-users"></i>
+	<div class="col-lg-12">
+		<div class="row mb-3">
+			<div class="col-xl-6">
+				<section class="card card-featured-left card-featured-primary mb-3">
+					<a href="#">
+						<div class="card-body">
+							<div class="widget-summary">
+								<div class="widget-summary-col widget-summary-col-icon">
+									<div class="summary-icon bg-primary">
+										<i class="fas fa-church"></i>
+									</div>
+								</div>
+								<div class="widget-summary-col">
+									<div class="summary">
+										<h4 class="title mt-4 text-uppercase">Reuniones de sabados</h4>
+										<div class="info">
+											<strong class="amount"></strong>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+				</section>
+			</div>
+			<div class="col-xl-6">
+				<section class="card card-featured-left card-featured-secondary">
+					<div class="card-body">
+						<div class="widget-summary">
+							<div class="widget-summary-col widget-summary-col-icon">
+								<div class="summary-icon bg-secondary">
+									<i class="fas fa-calendar-alt"></i>
+								</div>
+							</div>
+							<div class="widget-summary-col">
+								<div class="summary">
+									<h4 class="title mt-4 text-uppercase">Eventos</h4>
+									<div class="info">
+										<strong class="amount"></strong>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-				</header>
-				<div class="card-body p-4">
-					<h3 class="font-weight-semibold mt-3">Sabado</h3>
-					<p>Aquí podras enterarte de las reuniones que habra en el grupo</p>
-				</div>
-			</section>
-			<section class="card card-horizontal mb-4">
-				<header class="card-header bg-white">
-					<div class="card-header-icon bg-primary ml-3">
-						<i class="fas fa-calendar-alt"></i>
+				</section>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xl-6">
+				<section class="card card-featured-left card-featured-quaternary">
+					<div class="card-body">
+						<div class="widget-summary">
+							<div class="widget-summary-col widget-summary-col-icon">
+								<div class="summary-icon bg-quaternary">
+									<i class="fas fa-user"></i>
+								</div>
+							</div>
+							<div class="widget-summary-col">
+								<div class="summary">
+									<h4 class="title mt-4 text-uppercase">Hermanos</h4>
+									<div class="info">
+										<strong class="amount"></strong>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-				</header>
-				<div class="card-body p-4">
-					<h3 class="font-weight-semibold mt-3">Eventos</h3>
-					<p>Los eventos que tenemos en el grupo, capilla o Movimiento Rcc</p>
-				</div>
-			</section>
-    </div>
+				</section>
+			</div>
+		</div>
+	</div>
 </div>
