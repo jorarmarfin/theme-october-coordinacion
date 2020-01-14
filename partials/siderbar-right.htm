@@ -1,0 +1,41 @@
+[viewBag]
+[ObtieneEntidades]
+Modelo = "Hermanos"
+==
+{% set Hermanos = ObtieneEntidades.ModeloPorMes('h') %}
+<aside id="sidebar-right" class="sidebar-right">
+    <div class="nano">
+        <div class="nano-content">
+            <a href="#" class="mobile-close d-md-none">
+                Contraer <i class="fas fa-chevron-right"></i>
+            </a>
+
+            <div class="sidebar-right-wrapper">
+
+                <div class="sidebar-widget widget-calendar">
+                    <h6>Calendario</h6>
+                    <div id="mycalendario" data-plugin-datepicker data-plugin-skin="dark" ></div>
+
+                </div>
+
+                <div class="sidebar-widget widget-friends">
+                    <h6>Cumpleaños del mes</h6>
+                    <ul>
+                        {% for hermano in Hermanos.data %}
+                        <li class="">
+                            <figure class="profile-picture">
+                                <img src="{{ hermano.foto.path }}" alt="Joseph Doe" class="rounded-circle">
+                            </figure>
+                            <div class="profile-info">
+                                <span class="name">{{ hermano.nombre_pila }}</span>
+                                <span class="title">{{ hermano.t_dia }}</span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</aside>

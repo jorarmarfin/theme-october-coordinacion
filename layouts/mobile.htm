@@ -64,21 +64,25 @@ description = "Diseño base para portal"
 							<nav>
 								<ul class="nav nav-pills" id="mainNav">
 									<li class="">
-									    <a class="nav-link" href="layouts-default.html">
+									    <a class="nav-link" href="/emanuel">
 									        Inicio
 									    </a>
 									</li>
 									<li class="">
-									    <a class="nav-link" href="layouts-default.html">
+									    <a class="nav-link" href="/emanuel/reuniones-de-sabados">
 									        Reuniones de sabado
 									    </a>
 									</li>
 									<li class="">
-									    <a class="nav-link" href="layouts-default.html">
+									    <a class="nav-link" href="/emanuel/eventos">
 									        Eventos del grupo
 									    </a>
 									</li>
-									
+									<li class="">
+									    <a class="nav-link" href="/emanuel/hermanos">
+									        Hermanos
+									    </a>
+									</li>									
 								</ul>
 							</nav>
 						</div>
@@ -120,7 +124,7 @@ description = "Diseño base para portal"
 									<hr />
 			
 									<div class="text-right">
-										<a href="#" class="view-more">View All</a>
+										<a href="#" class="view-more">Ver todo</a>
 									</div>
 								</div>
 							</div>
@@ -184,41 +188,7 @@ description = "Diseño base para portal"
 				</section>
 			</div>
 
-			<aside id="sidebar-right" class="sidebar-right">
-				<div class="nano">
-					<div class="nano-content">
-						<a href="#" class="mobile-close d-md-none">
-							Contraer <i class="fas fa-chevron-right"></i>
-						</a>
-			
-						<div class="sidebar-right-wrapper">
-			
-							<div class="sidebar-widget widget-calendar">
-								<h6>Calendario</h6>
-								<div id="mycalendario" data-plugin-datepicker data-plugin-skin="dark" ></div>
-			
-							</div>
-			
-							<div class="sidebar-widget widget-friends">
-								<h6>Cumpleaños del mes</h6>
-								<ul>
-									<li class="status-online">
-										<figure class="profile-picture">
-											<img src="{{ 'assets/img/!sample-user.jpg'|theme }}" alt="Joseph Doe" class="rounded-circle">
-										</figure>
-										<div class="profile-info">
-											<span class="name">Joseph Doe Junior</span>
-											<span class="title">Hey, how are you?</span>
-										</div>
-									</li>
-								</ul>
-							</div>
-			
-						</div>
-					</div>
-				</div>
-			</aside>
-
+			{% partial 'siderbar-right' %}
 		</section>
 
 		<!-- Vendor -->

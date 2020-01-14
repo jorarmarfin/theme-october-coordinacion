@@ -1,5 +1,5 @@
 title = "Reuniones de sabados"
-url = "/emanuel/reuniones-de-sabados"
+url = "/emanuel/eventos"
 layout = "mobile"
 is_hidden = 0
 
@@ -12,10 +12,11 @@ security = "user"
 allowedUserGroups[] = "emanuel"
 allowedUserGroups[] = "servidores"
 redirect = "login"
+
 [ObtieneEntidades]
-Modelo = "Sabado"
+Modelo = "Eventos"
 ==
-{% set Sabados = ObtieneEntidades.ModeloPorMes %}
+{% set Eventos = ObtieneEntidades.ModeloPorMes %}
 <div class="row pt-4">
 	<div class="col-lg-12 col-xl-12">
 		<section class="card">
@@ -25,21 +26,21 @@ Modelo = "Sabado"
 					<a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
 				</div>
 
-				<h2 class="card-title">Reuniones de Sabados</h2>
+				<h2 class="card-title">Eventos del Grupo</h2>
 			</header>
 			<div class="card-body">
 				<div class="timeline timeline-simple mt-3 mb-3">
 					<div class="tm-body">
 						<div class="tm-title">
-							<h5 class="m-0 pt-2 pb-2 text-uppercase">{{ Sabados.mes.t_mes }}</h5>
+							<h5 class="m-0 pt-2 pb-2 text-uppercase">{{ Eventos.mes.t_mes }}</h5>
 						</div>
 						<ol class="tm-items">
-							{% for sabado in Sabados.data %}
+							{% for evento in Eventos.data %}
 								<li>
 									<div class="tm-box">
-										<p class="text-muted mb-0">{{ sabado.t_dia }} </p>
+										<p class="text-muted mb-0">{{ evento.t_dia }} - evento de {{ evento.tipo }} </p>
 										<p>
-											{{ sabado.tema|raw }}
+											{{ evento.descripcion|raw }}
 										</p>
 									</div>
 								</li>
