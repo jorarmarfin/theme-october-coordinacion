@@ -6,16 +6,37 @@ is_hidden = 0
 [session]
 security = "user"
 redirect = "login"
+allowedUserGroups[] = "servidores"
+
+[ObtieneEntidades]
+Modelo = "Hermanos"
 ==
+{% set Hermanos = ObtieneEntidades.Modelo %}
 <section class="card card-primary mb-4">
     <header class="card-header">
         <div class="card-actions">
             <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
             <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
         </div>
-        <h2 class="card-title">Title</h2>
+        <h2 class="card-title">Asistencias</h2>
     </header>
     <div class="card-body">
-        <code>.card-primary</code>
+        <table id="MyDataTable" class="table table-responsive-md table-striped mb-0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombres</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in Hermanos %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td><a href="/hermanos/detalle/{{ item.id }}">{{ item.apellidos }} {{ item.nombres }}</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
     </div>
 </section>

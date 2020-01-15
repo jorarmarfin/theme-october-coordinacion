@@ -67,6 +67,18 @@ function onStart()
                 <p class="text-3 text-muted mb-0">{{ cumple.fecha_nacimiento }}</p>
             </div>
         </section>
+        {% if user.name=='Luis' %}
+        <section class="card">
+            <a href="/asistencias">
+                <div class="card-body">
+                    <div class="small-chart float-right" id="sparklineBarDash">
+                    <i class="fas fa-tasks" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="h4 font-weight-bold mb-0">ASISTENCIA</div>
+                </div>
+            </a>
+        </section>
+        {% endif %}
     </div>
     <div class="col-lg-6 col-xl-3">
         <section class="card card-transparent">
