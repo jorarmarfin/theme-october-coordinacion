@@ -26,6 +26,10 @@ Modelo = "Hermanos"
                 <tr>
                     <th>#</th>
                     <th>Nombres</th>
+                    <th>Asistencias</th>
+                    <th>Faltas</th>
+                    <th>Tardanzas</th>
+                    <th>Justificaciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +37,10 @@ Modelo = "Hermanos"
                 <tr>
                     <td>{{ item.id }}</td>
                     <td><a href="/hermanos/detalle/{{ item.id }}">{{ item.apellidos }} {{ item.nombres }}</a></td>
+                    <td> {{ item.asistencias }} </td >
+                    <td> {{ item.faltas }} </td>
+                    <td> {{ item.tardanzas }} </td>
+                    <td> {{ item.justificaciones }} </td>
                 </tr>
             {% endfor %}
             </tbody>
