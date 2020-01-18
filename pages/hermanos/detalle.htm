@@ -3,15 +3,16 @@ url = "/hermanos/detalle/:id"
 layout = "default"
 is_hidden = 0
 
-[DetalleEntidades]
-Modelo = "Hermanos"
-
 [session]
 security = "user"
 redirect = "login"
+
+[DetalleEntidades]
+Modelo = "Hermanos"
 ==
 {% component 'DetalleEntidades' %}
 {% set detalle = DetalleEntidades.Modelo %}
+{% set resumen = DetalleEntidades.Asistencias %}
 
 <div class="row mt-4">
     <div class="col-lg-4 col-xl-3 mb-4 mb-xl-0">
@@ -42,14 +43,13 @@ redirect = "login"
         <div class="tabs">
             <ul class="nav nav-tabs tabs-primary">
                 <li class="nav-item active">
-                    <a class="nav-link active" href="#overview" data-toggle="tab">Overview</a>
+                    <a class="nav-link active" href="#overview" data-toggle="tab">Datos Personales</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div id="overview" class="tab-pane active">
 
                     <div class="p-3">
-                        <h4 class="mb-3">Datos Personales</h4>
                         <p><strong>Fecha de nacimiento:</strong> {{ detalle.fecha_nacimiento }}</p>
                         <p><strong>Año de inicio al grupo:</strong>  {{ detalle.inicio_go }}</p>
                         <p><strong>Telefono:</strong> {{ detalle.telefono }}</p>
@@ -67,19 +67,23 @@ redirect = "login"
     </div>
     <div class="col-xl-3">
 
-        <h4 class="mb-3 mt-0">Asistencia al grupo</h4>
+        <h4 class="mb-3 mt-0">Asistencia al grupo del año</h4>
         <ul class="simple-card-list mb-3">
             <li class="primary">
-                <h3>488</h3>
+                <h3>{{ resumen.asistencias }}</h3>
                 <p class="text-light">Asistencias</p>
             </li>
             <li class="danger">
-                <h3> 189,000.00</h3>
+                <h3> {{ resumen.faltas }}</h3>
                 <p class="text-light">Faltas.</p>
             </li>
             <li class="warning">
-                <h3>16</h3>
+                <h3>{{ resumen.tardanzas }}</h3>
                 <p class="text-light">Tardanzas</p>
+            </li>
+            <li class="success">
+                <h3>{{ resumen.justificaciones }}</h3>
+                <p class="text-light">Justificaciones</p>
             </li>
         </ul>
 
