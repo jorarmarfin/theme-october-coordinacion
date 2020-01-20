@@ -1,0 +1,36 @@
+title = "index"
+url = "/asistencias/create"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "login"
+allowedUserGroups[] = "servidores"
+
+[ObtieneEntidades]
+Modelo = "Hermanos"
+==
+{% set Hermanos = ObtieneEntidades.Modelo %}
+<section class="card card-primary mb-4">
+    <header class="card-header">
+        <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+        </div>
+        <h2 class="card-title">Crear asistencia</h2>
+    </header>
+    <div class="card-body">
+    <h1>{{ "now"|date("d/m/Y") }}</h1>
+		{% for hermano in Hermanos %}
+        <p>
+            <span class="title mr-3">{{ hermano.nombre_completo }}</span>
+            <a href="/asistencias/register/A" class="btn btn-primary mr-2">A</a>
+            <a href="/asistencias/register/F" class="btn btn-danger mr-2">F</a>
+            <a href="/asistencias/register/T" class="btn btn-warning mr-2">T</a>
+            <a href="/asistencias/register/J" class="btn btn-success mr-2">J</a>
+        </p>
+        {% endfor %}
+
+    </div>
+</section>
