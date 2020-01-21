@@ -24,11 +24,11 @@ Modelo = "Hermanos"
     <h1>{{ "now"|date("d/m/Y") }}</h1>
 		{% for hermano in Hermanos %}
         <p>
-            <span class="title mr-3">{{ hermano.nombre_completo }}</span>
-            <a href="/asistencias/register/A" class="btn btn-primary mr-2">A</a>
-            <a href="/asistencias/register/F" class="btn btn-danger mr-2">F</a>
-            <a href="/asistencias/register/T" class="btn btn-warning mr-2">T</a>
-            <a href="/asistencias/register/J" class="btn btn-success mr-2">J</a>
+            <span class="title mr-3">{{ hermano.nombre_completo }} - {{ hermano.asistencia }} </span>
+            <a href="/asistencias/register/{{ hermano.id }}/A" class="btn btn-primary mr-2">A</a>
+            <a href="/asistencias/register/{{ hermano.id }}/F" class="btn btn-danger mr-2">F</a>
+            <a href="/asistencias/register/{{ hermano.id }}/T" class="btn btn-warning mr-2">T</a>
+            <a href="/asistencias/register/{{ hermano.id }}/J" class="btn btn-success mr-2">J</a>
         </p>
         {% endfor %}
 
