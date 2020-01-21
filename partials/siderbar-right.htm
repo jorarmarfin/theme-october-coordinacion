@@ -14,7 +14,7 @@ Modelo = "Hermanos"
 
                 <div class="sidebar-widget widget-calendar">
                     <h6>Calendario</h6>
-                    <div id="mycalendario" data-plugin-datepicker data-plugin-skin="dark" ></div>
+                    <div id="mycalendario" data-plugin-datepicker data-plugin-skin="dark" data-plugin-options='{ "todayHighlight": true, "language": "es" }'  ></div>
 
                 </div>
 
@@ -24,7 +24,7 @@ Modelo = "Hermanos"
                         {% for hermano in Hermanos.data %}
                         <li class="">
                             <figure class="profile-picture">
-                                <img src="{{ hermano.foto.path }}" alt="Joseph Doe" class="rounded-circle">
+                                <img src="{{ hermano.foto.path }}" alt="{{ hermano.nombre_pila }}" class="rounded-circle">
                             </figure>
                             <div class="profile-info">
                                 <span class="name">{{ hermano.nombre_pila }}</span>

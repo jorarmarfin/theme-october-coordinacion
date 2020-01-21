@@ -1,5 +1,6 @@
 description = "Diseño base para portal"
 ==
+{% set grupo = user.groups['1'].name %}
 <!doctype html>
 <html class="fixed has-top-menu">
 	<head>
@@ -82,7 +83,15 @@ description = "Diseño base para portal"
 									    <a class="nav-link" href="/emanuel/hermanos">
 									        Hermanos
 									    </a>
-									</li>									
+									</li>
+									{% if grupo=='Servidores' %}
+									<li class="">
+									    <a class="nav-link" href="/">
+									        App Coord
+									    </a>
+									</li>
+									
+									{% endif %}
 								</ul>
 							</nav>
 						</div>
@@ -197,6 +206,7 @@ description = "Diseño base para portal"
 		<script src="{{ 'assets/vendor/popper/umd/popper.min.js'|theme }}"></script>
 		<script src="{{ 'assets/vendor/bootstrap/js/bootstrap.js'|theme }}"></script>
 		<script src="{{ 'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js'|theme }}"></script>
+		<script src="{{ 'assets/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js'|theme }}"></script>
 		<script src="{{ 'assets/vendor/common/common.js'|theme }}"></script>
 		<script src="{{ 'assets/vendor/nanoscroller/nanoscroller.js'|theme }}"></script>
 		<script src="{{ 'assets/vendor/magnific-popup/jquery.magnific-popup.js'|theme }}"></script>
@@ -230,6 +240,10 @@ description = "Diseño base para portal"
 		<script src="{{ 'assets/js/theme.init.js'|theme }}"></script>
 
 		{% framework extras %}
-
+		<script>
+			$('#datepicker').datepicker();
+			
+		</script>
+		
 	</body>
 </html>
