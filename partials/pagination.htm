@@ -1,0 +1,26 @@
+<nav aria-label="Page navigation example">
+	<ul class="pagination">
+			<li class="page-item">
+					{% if Hermanos.currentPage > 1 %}
+							<a class="page-link" href="{{ Hermanos.previousPageUrl }}" rel="prev">Ante</a>
+					{% else %}
+							<span class="disabled">Ante</span>
+					{% endif %}
+			</li>
+
+			{% for page in range(1, Hermanos.lastPage) %}
+					<li class="page-item">
+							<a class="page-link" href="{{ Hermanos.url(page) }}">{{ page }}</a>
+					</li>
+			{% endfor %}
+
+			<li class="page-item">
+					{% if Hermanos.hasMorePages %}
+							<a class="page-link" href="{{ Hermanos.nextPageUrl }}" rel="next">sig</a>
+					{% else %}
+							<span class="disabled">sig</span>
+					{% endif %}
+			</li>
+	</ul>
+</nav>
+
