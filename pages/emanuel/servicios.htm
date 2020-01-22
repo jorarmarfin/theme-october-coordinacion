@@ -1,0 +1,38 @@
+title = "Reuniones de sabados"
+url = "/emanuel/servicios"
+layout = "mobile"
+is_hidden = 0
+
+[account]
+paramCode = "code"
+forceSecure = 0
+
+[session]
+security = "user"
+allowedUserGroups[] = "emanuel"
+allowedUserGroups[] = "servidores"
+redirect = "login"
+
+[ObtieneEntidades]
+Modelo = "Servicios"
+==
+{% set Servicios = ObtieneEntidades.Modelo %}
+<div class="row pt-4">
+	{% for servicio in Servicios %}
+	<div class="col-md-6">
+		<section class="card card-featured card-featured-warning mb-4">
+			<header class="card-header">
+				<div class="card-actions">
+					<a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
+					<a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+				</div>
+
+				<h2 class="card-title">{{ servicio.nombre }}</h2>
+			</header>
+			<div class="card-body">
+				{{ servicio.descripcion|raw }}
+			</div>
+		</section>
+	</div>
+	{% endfor %}
+</div>

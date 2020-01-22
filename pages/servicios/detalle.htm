@@ -1,0 +1,33 @@
+title = "detalle"
+url = "/servicios/detalle/:id"
+layout = "default"
+is_hidden = 0
+
+[DetalleEntidades]
+Modelo = "Servicios"
+
+[session]
+security = "user"
+redirect = "login"
+==
+{% component 'DetalleEntidades' %}
+{% set servicio = DetalleEntidades.Modelo %}
+
+<section class="card card-primary mb-4">
+    <header class="card-header">
+        <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+        </div>
+        <h2 class="card-title">servicio </h2>
+    </header>
+    <div class="card-body">
+		<div class="row">
+            <div class="col-md-4">
+            <h2>{{ servicio.nombre }}</h2>
+            {{ servicio.descripcion|raw }}
+            </div>
+        </div>
+
+    </div>
+</section>

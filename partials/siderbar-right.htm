@@ -2,7 +2,7 @@
 [ObtieneEntidades]
 Modelo = "Hermanos"
 ==
-{% set Hermanos = ObtieneEntidades.ModeloPorMes('h') %}
+{% set Hermanos = ObtieneEntidades.ModeloPorMes('h','dia_nacimiento') %}
 <aside id="sidebar-right" class="sidebar-right">
     <div class="nano">
         <div class="nano-content">
@@ -24,7 +24,11 @@ Modelo = "Hermanos"
                         {% for hermano in Hermanos.data %}
                         <li class="">
                             <figure class="profile-picture">
-                                <img src="{{ hermano.foto.path }}" alt="{{ hermano.nombre_pila }}" class="rounded-circle">
+                                {% if  hermano.foto.path %}
+                                    <img src=" {{ hermano.foto.path }} " alt="{{ hermano.nombre_pila }}" class="rounded-circle">
+                                {% else %}
+                                    <img src="https://via.placeholder.com/200" alt="{{ hermano.nombre_pila }}" class="rounded-circle">
+                                {% endif %}
                             </figure>
                             <div class="profile-info">
                                 <span class="name">{{ hermano.nombre_pila }}</span>

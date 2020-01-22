@@ -55,12 +55,17 @@ description = "Dise�o base para portal"
 			<div class="inner-wrapper">
 				{% partial 'menu' %}
 				<section role="main" class="content-body tab-menu-opened">
-
+					<header class="page-header page-header-left-breadcrumb">
+						<div class="right-wrapper">
+							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+						</div>
+					</header>
 					<!-- start: page -->
 					{% page %}
 					<!-- end: page -->
 				</section>
 			</div>
+			{% partial 'siderbar-right' %}
 		</section>
 
 		<!-- Vendor -->
@@ -69,6 +74,8 @@ description = "Dise�o base para portal"
 		<script src="{{ 'assets/vendor/popper/umd/popper.min.js'|theme }}"></script>
 		<script src="{{ 'assets/vendor/bootstrap/js/bootstrap.js'|theme }}"></script>
 		<script src="{{ 'assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js'|theme }}"></script>
+		<script src="{{ 'assets/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js'|theme }}"></script>
+
 		<script src="{{ 'assets/vendor/common/common.js'|theme }}"></script>
 		<script src="{{ 'assets/vendor/nanoscroller/nanoscroller.js'|theme }}"></script>
 		<script src="{{ 'assets/vendor/magnific-popup/jquery.magnific-popup.js'|theme }}"></script>

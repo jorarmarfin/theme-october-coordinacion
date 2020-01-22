@@ -16,9 +16,11 @@ use LuisMayta\Coordinacion\Models\Sabado;
 function onStart()
 {
     $mes = date('m');
-    $this['cumple'] = Hermanos::OrderBy('fecha_nacimiento','asc')->WhereMonth('fecha_nacimiento',$mes)->first();
+    $dia = date('d');
+    $this['cumple'] = Hermanos::OrderBy('dia_nacimiento','asc')->whereDay('fecha_nacimiento','>=',$dia)->WhereMonth('fecha_nacimiento',$mes)->first();
     $this['eventos'] = Eventos::OrderBy('fecha','asc')->take(5)->get();
     $this['reuniones'] = Reuniones::OrderBy('fecha','asc')->take('5')->get();
+    $this['reunion'] = Reuniones::OrderBy('fecha','desc')->first();
     $this['sabados'] = Sabado::OrderBy('fecha','asc')->take('5')->get();
 
 }
@@ -28,43 +30,21 @@ function onStart()
 <div class="row pt-4 mt-2">
     <div class="col-lg-6 col-xl-3">
         <section class="card">
-            <header class="card-header">
-                <div class="card-actions">
-                    <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                    <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
-                </div>
-
-                <h2 class="card-title">Mi perfil</h2>
-            </header>
             <div class="card-body">
-                <section class="card card-group">
-                    <header class="card-header bg-primary">
-
-                        <div class="widget-profile-info">
-                            <div class="profile-picture">
-                                <img src="{{ user.avatar.path }}">
-                            </div>
-                            <div class="profile-info">
-                                <h4 class="name font-weight-semibold">{{ user.name }}</h4>
-                                <h5 class="role">Administrator</h5>
-                                <div class="profile-footer">
-                                    <a href="/mi-perfil">(editar perfil)</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </header>
-                </section>
-
+                <div class="small-chart float-right" id="sparklineBarDash">
+                <i class="fas fa-birthday-cake" style="font-size: 3rem;"></i>
+                </div>
+                <div class="h4 font-weight-bold mb-0">{{ cumple.nombres }}, {{ cumple.t_dia }}</div>
+                <p class="text-3 text-muted mb-0">Proximo cumpleaños</p>
             </div>
         </section>
         <section class="card">
             <div class="card-body">
                 <div class="small-chart float-right" id="sparklineBarDash">
-                <i class="fas fa-birthday-cake" style="font-size: 3rem;"></i>
+                <i class="fas fa-users" style="font-size: 3rem;"></i>
                 </div>
-                <div class="h4 font-weight-bold mb-0">{{ cumple.nombres }}</div>
-                <p class="text-3 text-muted mb-0">{{ cumple.fecha_nacimiento }}</p>
+                <div class="h4 font-weight-bold mb-0">PROXIMA REUNION</div>
+                <p class="text-3 text-muted mb-0">de {{ reunion.tipo }} el {{ reunion.fecha }}</p>
             </div>
         </section>
         {% if user.name=='Luis' %}
@@ -91,7 +71,7 @@ function onStart()
                         </div>
 
                         <h2 class="card-title">
-                            <span class="va-middle">Sabado</span>
+                            <span class="va-middle">Reuniones de Sabado</span>
                         </h2>
                     </header>
                     <div class="card-body">
