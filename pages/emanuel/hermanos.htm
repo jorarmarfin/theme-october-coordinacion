@@ -16,7 +16,7 @@ redirect = "login"
 [ObtieneEntidades]
 Modelo = "Hermanos"
 ==
-{% set Hermanos = ObtieneEntidades.Modelo(3) %}
+{% set Hermanos = ObtieneEntidades.Modelo %}
 <div class="row pt-4">
 {% for hermano in Hermanos %}
 	<div class="col-xl-6">

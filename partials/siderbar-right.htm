@@ -1,8 +1,10 @@
 [viewBag]
+
 [ObtieneEntidades]
 Modelo = "Hermanos"
+Paginacion = 3
 ==
-{% set Hermanos = ObtieneEntidades.ModeloPorMes('h','dia_nacimiento') %}
+{% set Hermanos = ObtieneEntidades.ModeloPorMes %}
 <aside id="sidebar-right" class="sidebar-right">
     <div class="nano">
         <div class="nano-content">
