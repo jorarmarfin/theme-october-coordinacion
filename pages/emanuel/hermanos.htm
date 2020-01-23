@@ -15,7 +15,6 @@ redirect = "login"
 
 [ObtieneEntidades]
 Modelo = "Hermanos"
-Paginacion = 2
 CampoMes = "fecha"
 Orden = "dia_nacimiento"
 ==
@@ -48,11 +47,9 @@ Orden = "dia_nacimiento"
 	</div>
 {% endfor %}
 <div class="col-xl-12">
-{% if Hermanos.hasPages %}
-	{% set results = Hermanos%}
-	{% partial 'pagination' %}
-{% endif %}
+{% set results = Hermanos%}
+{% partial 'pagination' results=Hermanos %}
+
 </div>
-------
-{{ Hermanos|raw }}
+
 </div>
