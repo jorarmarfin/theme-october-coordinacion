@@ -1,26 +1,37 @@
-<nav aria-label="Page navigation example">
-	<ul class="pagination">
+<ul class="pagination float-right">
+		<li class="page-item">
+				{% if results.currentPage > 1 %}
+						<a class="page-link" href="{{ results.previousPageUrl }}" rel="prev"><i class="fas fa-angle-left"></i></a>
+				{% else %}
+						<span class="disabled"><a class="page-link" rel="prev"><i class="fas fa-angle-left"></i></a>  </span>
+				{% endif %}
+		</li>
+
+		{% for page in 1..results.lastPage %}
 			<li class="page-item">
-					{% if Hermanos.currentPage > 1 %}
-							<a class="page-link" href="{{ Hermanos.previousPageUrl }}" rel="prev">Ante</a>
-					{% else %}
-							<span class="disabled">Ante</span>
-					{% endif %}
+				<a 
+					class="page-link {{ results.currentPage == page ? 'active' : null }}" 
+					href="{{ this.page.baseFileName | page }}?page={{ page }}">
+					{{ page }}
+				</a>
 			</li>
+		{% endfor %}
 
-			{% for page in range(1, Hermanos.lastPage) %}
-					<li class="page-item">
-							<a class="page-link" href="{{ Hermanos.url(page) }}">{{ page }}</a>
-					</li>
-			{% endfor %}
-
-			<li class="page-item">
-					{% if Hermanos.hasMorePages %}
-							<a class="page-link" href="{{ Hermanos.nextPageUrl }}" rel="next">sig</a>
-					{% else %}
-							<span class="disabled">sig</span>
-					{% endif %}
-			</li>
-	</ul>
-</nav>
-
+		<li class="page-item">
+				{% if results.hasMorePages %}
+						<a class="page-link" href="{{ results.nextPageUrl }}" rel="next"><i class="fas fa-angle-right"></i></a>
+				{% else %}
+						<span class="disabled"><a class="page-link" rel="prev"><i class="fas fa-angle-right"></i></a>  </span>
+				{% endif %}
+		</li>
+</ul>
+<br>
+<br>
+<br>
+<ul class="pagination float-right">
+	<li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>
+	<li class="page-item active"><a class="page-link" href="#">1</a></li>
+	<li class="page-item"><a class="page-link" href="#">2</a></li>
+	<li class="page-item"><a class="page-link" href="#">3</a></li>
+	<a class="page-link" href="#"><i class="fas fa-angle-right"></i></a>
+</ul>

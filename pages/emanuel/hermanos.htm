@@ -48,9 +48,11 @@ Orden = "dia_nacimiento"
 	</div>
 {% endfor %}
 <div class="col-xl-12">
-{% if Hermanos.hasPages %}ee
+{% if Hermanos.hasPages %}
+	{% set results = Hermanos%}
 	{% partial 'pagination' %}
 {% endif %}
 </div>
 ------
+{{ Hermanos|raw }}
 </div>
