@@ -20,36 +20,34 @@ Orden = "dia_nacimiento"
 ==
 {% set Hermanos = ObtieneEntidades.Modelo %}
 <div class="row pt-4">
-{% for hermano in Hermanos %}
-	<div class="col-xl-6">
-		<section class="card card-featured-left card-featured-primary mb-3">
-			<div class="card-body">
-				<div class="widget-summary">
-					<div class="widget-summary-col widget-summary-col-icon">
-						<figure class="profile-picture">
-								<img src="{{ hermano.foto.path }}" width="100px" class="rounded-circle">
-						</figure>
-					</div>
-					<div class="widget-summary-col">
-						<div class="summary">
-							<h4 class="title">{{ hermano.nombre_completo }}</h4>
-							<div class="info">
-								<p>{{ hermano.telefonos }} |	{{ hermano.email }}</p>
-							</div>
+	{% for hermano in Hermanos %}
+		<div class="col-xl-6">
+			<section class="card card-featured-left card-featured-primary mb-3">
+				<div class="card-body">
+					<div class="widget-summary">
+						<div class="widget-summary-col widget-summary-col-icon">
+							<figure class="profile-picture">
+									<img src="{{ hermano.foto.path }}" width="100px" class="rounded-circle">
+							</figure>
 						</div>
-						<div class="summary-footer">
-							Dirección: {{ hermano.direccion }}
+						<div class="widget-summary-col">
+							<div class="summary">
+								<h4 class="title">{{ hermano.nombre_completo }}</h4>
+								<div class="info">
+									<p>{{ hermano.telefonos }} |	{{ hermano.email }}</p>
+								</div>
+							</div>
+							<div class="summary-footer">
+								Dirección: {{ hermano.direccion }}
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</div>
+	{% endfor %}
+	<div class="col-xl-12">
+	{% set results = Hermanos%}
+	{% partial 'pagination' results=Hermanos %}
 	</div>
-{% endfor %}
-<div class="col-xl-12">
-{% set results = Hermanos%}
-{% partial 'pagination' results=Hermanos %}
-
-</div>
-
 </div>
