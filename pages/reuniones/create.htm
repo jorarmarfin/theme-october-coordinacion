@@ -1,0 +1,66 @@
+title = "index"
+url = "/reuniones/create"
+layout = "default"
+is_hidden = 0
+
+[session]
+security = "user"
+redirect = "login"
+
+[PanelAdmin]
+==
+
+<div class="row">
+	<div class="col">
+		<section class="card">
+			<header class="card-header">
+				<div class="card-actions">
+					<a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
+					<a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+				</div>
+
+				<h2 class="card-title">Crear Reunion</h2>
+			</header>
+			<div class="card-body">
+				{{ form_open({ class: 'form-horizontal form-bordered',request: 'Actualiza' }) }}
+					<div class="form-group row">
+						<label class="col-lg-3 control-label text-lg-right pt-2" for="inputDefault">Tipo de Reunión</label>
+						<div class="col-lg-6">
+							<select name="tipo" class="form-control" >
+								<option>capilla</option>
+								<option>zonal</option>
+								<option>servidores</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-lg-3 control-label text-lg-right pt-2" for="inputDefault">Fecha</label>
+						<div class="col-lg-6">
+							<input name="fecha" class="form-control" type="date" placeholder="Fecha" >
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-lg-3 control-label text-lg-right pt-2" for="inputReadOnly">Asunto</label>
+						<div class="col-lg-6">
+							<input name="asunto" type="text"  id="inputReadOnly" class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-lg-3 control-label text-lg-right pt-2" for="inputHelpText">Descripcion</label>
+						<div class="col-lg-6">
+							<textarea name="descripcion" class="summernote" data-plugin-summernote data-plugin-options='{ "height": 180, "codemirror": { "theme": "ambiance" } }'><p></p></textarea>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-lg-6">
+							<button type="submit" class="btn btn-primary">Guardar</button>
+						</div>
+					</div>
+				{{ form_close() }}
+			</div>
+		</section>
+	</div>
+</div>

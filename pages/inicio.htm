@@ -193,14 +193,11 @@ redirect = "login"
 </div>
 {% if user.name=='Luis' %}
 <section class="card">
-    <a href="/asistencias">
-        <div class="card-body">
-            <div class="small-chart float-right" id="sparklineBarDash">
-            <i class="fas fa-tasks" style="font-size: 3rem;"></i>
-            </div>
-            <div class="h4 font-weight-bold mb-0">ASISTENCIA</div>
-        </div>
-    </a>
+    <div class="card-body">
+        <a href="/asistencias/create" class="mb-1 mt-1 mr-1 btn btn-primary"><i class="fas fa-plus mr-2"></i>Asistencias</a>
+        <a href="/reuniones/create" class="mb-1 mt-1 mr-1 btn btn-success"><i class="fas fa-plus mr-2"></i>Reunion</a>
+        <a href="#" class="mb-1 mt-1 mr-1 btn btn-danger"><i class="fas fa-tasks mr-2"></i>Evento</a>
+    </div>
 </section>
 {% endif %}
 
