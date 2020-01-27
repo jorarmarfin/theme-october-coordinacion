@@ -1,0 +1,35 @@
+title = "detalle"
+url = "/actas/detalle/:id"
+layout = "default"
+is_hidden = 0
+
+[DetalleEntidades]
+Modelo = "Actas"
+
+[session]
+security = "user"
+redirect = "login"
+==
+{% component 'DetalleEntidades' %}
+{% set detalle = DetalleEntidades.Modelo %}
+
+<section class="card card-primary mb-4">
+    <header class="card-header">
+        <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+        </div>
+        <h2 class="card-title">Acta del  {{ detalle.fecha }}</h2>
+    </header>
+    <div class="card-body">
+		<div class="row">
+            <div class="col-md-4">
+            <h2>Acuerdos</h2>
+            {{ detalle.acuerdos|raw }}
+            <h2>Asistentes</h2>
+            {{ detalle.asistentes|raw }}
+            </div>
+        </div>
+
+    </div>
+</section>

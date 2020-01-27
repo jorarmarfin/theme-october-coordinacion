@@ -11,31 +11,23 @@ redirect = "login"
 Modelo = "Hermanos"
 ==
 {% set Hermanos = ObtieneEntidades.Modelo %}
-<section class="card card-primary mb-4">
-    <header class="card-header">
-        <div class="card-actions">
-            <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
-            <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
-        </div>
-        <h2 class="card-title">Hermanos</h2>
-    </header>
-    <div class="card-body">
-        <table id="MyDataTable" class="table table-responsive-md table-striped mb-0">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Nombres</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for item in Hermanos %}
-                <tr>
-                    <td>{{ item.id }}</td>
-                    <td><a href="/hermanos/detalle/{{ item.id }}">{{ item.apellidos }} {{ item.nombres }}</a></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
-    </div>
-</section>
+<div class="row pt-4">
+	{% for hermano in Hermanos %}
+	<div class="col-md-6">
+        <section class="card">
+            <header class="card-header bg-tertiary">
+                <div class="card-header-profile-picture">
+                    <img src="{{ hermano.foto.path }}">
+                </div>
+            </header>
+            <div class="card-body">
+                <h4 class="font-weight-semibold mt-3"> {{ hermano.nombre_completo }} </h4>
+                <hr class="solid short">
+                <p class="mb-1"><i class="fas fa-phone mr-1"></i>{{ hermano.telefonos }}</p>
+                <p class="mb-1"><i class="fas fa-envelope mr-1"></i>{{ hermano.email }}</p>
+                <p class="mb-1"><i class="fas fa-map-marker-alt"></i> {{ hermano.direccion|raw }}</p>
+                <p class="mb-1"><i class="fas fa-birthday-cake"></i> {{ hermano.t_mes }} {{ hermano.t_dia }}</p>
+            </div>
+        </section>	</div>
+	{% endfor %}
+</div>

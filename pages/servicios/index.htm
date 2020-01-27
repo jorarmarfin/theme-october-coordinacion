@@ -11,31 +11,17 @@ redirect = "login"
 Modelo = "Servicios"
 ==
 {% set Servicios = ObtieneEntidades.Modelo %}
-<section class="card card-primary mb-4">
-    <header class="card-header">
-        <div class="card-actions">
-            <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
-            <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
-        </div>
-        <h2 class="card-title">Servicios</h2>
-    </header>
-    <div class="card-body">
-        <table id="MyDataTable" class="table table-responsive-md table-striped mb-0">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Nombre del servicio</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for item in Servicios %}
-                <tr>
-                    <td>{{ item.id }}</td>
-                    <td> <a href="/servicios/detalle/{{ item.id }}">{{ item.nombre }}</a> </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
+{% for servicio in Servicios %}
+<div class="row">
+    <div class="col-lg-6">
+        <section class="card">
+            <div class="card-body">
+                <h4 class="font-weight-semibold mt-3">{{ servicio.responsable }}</h4>
+                {{ servicio.descripcion|raw }}
+                <hr class="solid short">
+                {{ servicio.integrantes }}
+            </div>
+        </section>
     </div>
-</section>
+</div>
+{% endfor %}

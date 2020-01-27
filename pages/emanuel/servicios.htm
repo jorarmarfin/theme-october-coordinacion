@@ -32,7 +32,9 @@ Orden = "dia_nacimiento"
 				<h2 class="card-title">{{ servicio.nombre }}</h2>
 			</header>
 			<div class="card-body">
+				<p>Responsable: {{ servicio.responsable }} </p>
 				{{ servicio.descripcion|raw }}
+				<p>Integrantes: {{ servicio.integrantes }} </p>
 			</div>
 		</section>
 	</div>
