@@ -9,6 +9,9 @@ redirect = "login"
 
 [ObtieneEntidades]
 Modelo = "Hermanos"
+Paginacion = 10
+CampoOrden = "nombres"
+Orden = "asc"
 ==
 {% set Hermanos = ObtieneEntidades.Modelo %}
 <div class="row pt-4">
@@ -28,6 +31,10 @@ Modelo = "Hermanos"
                 <p class="mb-1"><i class="fas fa-map-marker-alt"></i> {{ hermano.direccion|raw }}</p>
                 <p class="mb-1"><i class="fas fa-birthday-cake"></i> {{ hermano.t_mes }} {{ hermano.t_dia }}</p>
             </div>
-        </section>	</div>
+        </section>	
+    </div>
 	{% endfor %}
+    <div class="col-xl-12">
+        {% partial 'pagination' results=Hermanos %}
+    </div>
 </div>

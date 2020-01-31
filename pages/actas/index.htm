@@ -9,33 +9,31 @@ redirect = "login"
 
 [ObtieneEntidades]
 Modelo = "Actas"
+Paginacion = 10
+CampoMes = "fecha"
+CampoOrden = "fecha"
+Orden = "desc"
 ==
 {% set Actas = ObtieneEntidades.Modelo %}
-<section class="card card-primary mb-4">
-    <header class="card-header">
-        <div class="card-actions">
-            <a href="#" class="card-action card-action-toggle" data-card-toggle=""></a>
-            <a href="#" class="card-action card-action-dismiss" data-card-dismiss=""></a>
+<div class="row">
+    <div class="col-lg-12">
+        <h4> <strong>Actas</strong> </h4>
+        <div class="toggle toggle-primary toggle-lg" data-plugin-toggle="">
+        {% for item in Actas %}
+            <section class="toggle">
+                <label>{{ item.fecha }} </label>
+                <div class="toggle-content" style="display: none;">
+                    <div class="card-body">
+                        {{ item.acuerdos|raw }} 
+                        <hr class="solid short">
+                        {{ item.asistentes|raw }}
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
         </div>
-        <h2 class="card-title">Actas</h2>
-    </header>
-    <div class="card-body">
-        <table id="MyDataTable" class="table table-responsive-md table-striped mb-0">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Fecha</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for item in Actas %}
-                <tr>
-                    <td>{{ item.id }}</td>
-                    <td> <a href="/actas/detalle/{{ item.id }}">{{ item.fecha }}</a> </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
     </div>
-</section>
+    <div class="col-xl-12">
+        {% partial 'pagination' results=Actas %}
+    </div>
+</div>

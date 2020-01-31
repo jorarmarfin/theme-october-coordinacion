@@ -1,10 +1,6 @@
 [viewBag]
 
 [ObtieneEntidades]
-Modelo = "Hermanos"
-Paginacion = 3
-CampoMes = "fecha_nacimiento"
-Orden = "dia_nacimiento"
 ==
 {% set Hermanos = ObtieneEntidades.BirthDay %}
 <aside id="sidebar-right" class="sidebar-right">
@@ -25,7 +21,7 @@ Orden = "dia_nacimiento"
                 <div class="sidebar-widget widget-friends">
                     <h6>Cumpleaños del mes</h6>
                     <ul>
-                        {% for hermano in Hermanos.data %}
+                        {% for hermano in Hermanos %}
                         <li class="">
                             <figure class="profile-picture">
                                 {% if  hermano.foto.path %}
@@ -36,7 +32,7 @@ Orden = "dia_nacimiento"
                             </figure>
                             <div class="profile-info">
                                 <span class="name">{{ hermano.nombre_pila }}</span>
-                                <span class="title">{{ hermano.t_dia }}</span>
+                                <span class="title"> {{ hermano.t_mes }} {{ hermano.t_dia }}</span>
                             </div>
                         </li>
                         {% endfor %}
