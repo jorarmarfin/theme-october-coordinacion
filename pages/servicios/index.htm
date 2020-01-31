@@ -13,17 +13,18 @@ CampoOrden = "nombre"
 Orden = "asc"
 ==
 {% set Servicios = ObtieneEntidades.Modelo %}
-{% for servicio in Servicios %}
 <div class="row">
+    {% for servicio in Servicios %}
     <div class="col-lg-6">
         <section class="card">
             <div class="card-body">
-                <h4 class="font-weight-semibold mt-3">{{ servicio.responsable }}</h4>
+                <h4 class="font-weight-semibold mt-3">{{ servicio.nombre }}</h4>
+                <strong>{{ servicio.responsable }}</strong>
                 {{ servicio.descripcion|raw }}
                 <hr class="solid short">
                 {{ servicio.integrantes }}
             </div>
         </section>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
